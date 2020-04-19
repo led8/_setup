@@ -1,5 +1,5 @@
 # Setup your machine!
-___
+
 
 Welcome to this setup where we are going to install the tools required to make your machine a true developer environment 💪. The following instructions will help you to get ready for The Ubisoft Legal Dev fullstack bootcamp:
 
@@ -11,7 +11,7 @@ Welcome to this setup where we are going to install the tools required to make y
 
 
 ## Prerequisites
-___
+
 
 Before we start, it is important you meet the following prerequisites to ensure the smooth running of the setup. Take your time to read through everything and do not hesitate to ask for help if you feel stuck. Ready? Let's go 😎
 
@@ -54,16 +54,17 @@ For many computers, this is already the case. Let's check:
 - Click on CPU.
 - The status will be listed under the graph and will say "Virtualization: Enabled" if this tool is enabled.
 
+![CPU](CPU.png)
 
 ## GitHub account
-___
+
 
 Have you signed up to GitHub? If not, [do it right away](https://github.com/).
 
 👉 [Upload a picture](https://github.com/settings/profile) and put your name correctly on your GitHub account. This is important as we'll use an internal dashboard with your avatars. Please do this now, before you continue with this guide.
 
 ## Windows Subsystem for Linux
-___
+
 
 WSL is the development environment we are using to run Ubuntu. You can learn more about WSL [here](https://docs.microsoft.com/en-us/windows/wsl/faq).
 
