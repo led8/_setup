@@ -10,7 +10,7 @@ Welcome to this setup where we are going to install the tools required to make y
 - Install Ruby
 
 
-### Prerequisites
+## Prerequisites
 ___
 
 Before we start, it is important you meet the following prerequisites to ensure the smooth running of the setup. Take your time to read through everything and do not hesitate to ask for help if you feel stuck. Ready? Let's go 😎
@@ -26,7 +26,8 @@ Not the case? Don't panic 😱 You can always install Windows 10 from [Microsoft
 
 Once you're sure that you're using Windows 10, you will need to check that your computer has all the latest updates. For this click on **Start>Settings>Updates & Security>Windows Update**, then click on **Check updates**. If you have updates available please install them and repeat the process until it says that you are up to date ⭐.
 
-##### The Insider program
+#### The Insider program
+
 For the best development tools we need to be part of the **Windows Insider** program which gives access to pre-release versions of various tools.
 
 Go to **Start → Settings → Updates & Security → Insider Program**
@@ -41,7 +42,8 @@ Start the update and go grab a coffee ☕ or tea 🍵.
 
 After your computer has restarted, go to **Start → Settings → System → About**. This time check the **Version**, if it says at least 2004, you are good to go 😎.
 
-##### Virtualization
+#### Virtualization
+
 We need to ensure that the Virtualization options are enabled in the BIOS of your computer.
 
 For many computers, this is already the case. Let's check:
@@ -53,13 +55,14 @@ For many computers, this is already the case. Let's check:
 - The status will be listed under the graph and will say "Virtualization: Enabled" if this tool is enabled.
 
 
-### GitHub account
+## GitHub account
 ___
+
 Have you signed up to GitHub? If not, [do it right away](https://github.com/).
 
 👉 [Upload a picture](https://github.com/settings/profile) and put your name correctly on your GitHub account. This is important as we'll use an internal dashboard with your avatars. Please do this now, before you continue with this guide.
 
-### Windows Subsystem for Linux
+## Windows Subsystem for Linux
 ___
 
 WSL is the development environment we are using to run Ubuntu. You can learn more about WSL [here](https://docs.microsoft.com/en-us/windows/wsl/faq).
@@ -68,15 +71,15 @@ Click on **Start** and type **powershell**. Right click on **Windows Powershell*
 
 (If you are asked to restart your computer, type **n** and **enter** to prevent your computer from restarting at that moment).
 
-```
+```cli
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-```
+```cli
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-````
+````cli
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ````
 
