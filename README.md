@@ -2,4 +2,4 @@
 
 Before start you have to install the tools required to make your machine a true developer environment 💪:
 
-- [_setup your machine](README.md)
+- if you'are using a windowns OS --> [_setup your machine here](windowns_setup.md)
