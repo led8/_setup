@@ -54,7 +54,7 @@ For many computers, this is already the case. Let's check:
 - Click on CPU.
 - The status will be listed under the graph and will say "Virtualization: Enabled" if this tool is enabled.
 
-![CPU](CPU.png)
+![CPU](assets/CPU.png)
 
 
 ## GitHub account
@@ -105,7 +105,7 @@ You can close the terminal now that WSL is installed on your computer.
 
 First, we need to download the [WSL2 installer](https://docs.microsoft.com/fr-fr/windows/wsl/wsl2-kernel). Click on the suggested link to download the update package and once it is downloaded, open the program.
 
-![wsl](wsl.png)
+![wsl](assets/assets/wsl.png)
 
 
 Click on **Next**, then **Finish**.
@@ -187,7 +187,7 @@ Go the [Visual Studio Code](https://code.visualstudio.com/download) page and cli
 
 To help VS Code interact with your terminal, we need to add the extension **Remote Development**. Go to the [extension page](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) and click on **Install**. This will tell you that VS Code is required to install this extension. Click on **Continue**. You will get an alert asking you to open Visual Studio Code. The editor will open to the extension page.
 
-![vsc](vsc.png)
+![vsc](assets/vsc.png)
 
 Click on **Install**. Click on **File → Preferences → Keymaps**. Click on **Sublime Text Keymap** and **Settings Importer**. Click on **Install**. Click on **Reload Required**.
 
@@ -205,7 +205,7 @@ Press ``Ctrl`` + ``,`` on your keyboard to open the settings. In the search bar,
 
 It should look like this:
 
-![settings](vsc_settings_json.png)
+![settings](assets/vsc_settings_json.png)
 
 Now, your code editor is ready 💪.
 
@@ -226,7 +226,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 At then end, your terminal should look like this:
 
-![zsh](zsh.png)
+![zsh](assets/zsh.png)
 
 
 ## GitHub
@@ -297,7 +297,7 @@ Hackers love to refine and polish their shell and tools. We'll start with a grea
 
 You should arrive on a page that looks like this. Make sure to **select your GitHub account**.
 
-![dotfiles](dotfiles.png)
+![dotfiles](assets/dotfiles.png)
 
 
 Forking means that it will create a new repo in your GitHub account, identical to the original one. You'll have a new repository on your GitHub account, ``your_github_username/dotfiles``. We need to fork because each of you will need to put specific information (e.g. your name) in those files.
