@@ -73,17 +73,17 @@ Click on **Start** and type **powershell**. Right click on **Windows Powershell*
 
 (If you are asked to restart your computer, type **n** and **enter** to prevent your computer from restarting at that moment).
 
-```
+```bash
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-```
+```bash
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-````
+```bash
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-````
+```
 
 **When all three commands ran without any errors, restart your computer**.
 
@@ -121,7 +121,7 @@ Make sure that the option **Compress content** is **not** ticked. Click on **Ok*
 Click on **Start**. In the search bar type **cmd**, open the **Command Prompt**. You will see all the WSL updates installed on your machine with the command:
 
 
-```
+```bash
 wsl -l -v
 ```
 
@@ -129,7 +129,7 @@ wsl -l -v
 You should see the Ubuntu version that you installed before.
 Let's upgrade it to the version 2, by running the following command:
 
-```
+```bash
 wsl --set-version Ubuntu 2
 ```
 
@@ -137,7 +137,7 @@ A message will appear telling you that the conversion is in progress and that it
 When you get the message **The conversion is complete**, paste the first command into the command prompt again:
 
 
-```
+```bash
 wsl -l -v
 ```
 
@@ -168,11 +168,11 @@ To install ``git``, first open an Ubuntu terminal. To open an Ubuntu terminal, h
 Then copy and paste the following lines **one line at a time** (note that you can paste by doing a right click in the terminal):
 
 
-```
+```bash
 sudo apt update
 ```
 
-```
+```bash
 sudo apt install -y git apt-transport-https unzip gnome-terminal
 ```
 
@@ -196,7 +196,7 @@ Let's gain time now and add the Ruby on Rails support for your code editor. Go t
 Press ``Ctrl`` + ``,`` on your keyboard to open the settings. In the search bar, type **emmet**. Click on **Edit in settings.json** Paste the following just before the last ``}``
 
 
-```
+```bash
 "emmet.triggerExpansionOnTab": true,
 "emmet.includeLanguages": {
   "erb": "html"
@@ -215,12 +215,12 @@ Now, your code editor is ready 💪.
 
 We will use the shell named ``zsh`` instead of ``bash``, the default one.
 
-```
+```bash
 # it will ask for your session password
 sudo apt install -y zsh curl vim nodejs imagemagick jq
 ```
 
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
@@ -237,16 +237,15 @@ We need to generate SSH keys which are going to be used by GitHub and Heroku to 
 Open a terminal and type this, replacing the email with **yours** (the same one you used to create your GitHub account). It will prompt for information. Just press enter until it asks for a **passphrase**.
 
 
-```
+```bash
 mkdir -p ~/.ssh && ssh-keygen -t ed25519 -o -a 100 -f ~/.ssh/id_ed25519 -C "TYPE_YOUR_EMAIL@HERE.com"
-
 ```
 
 **NB**: when asked for a passphrase, put something you want (and that you'll remember), it's a password to protect your private key stored on your hard drive. You'll type, nothing will show up on the screen, that's normal. Just type the passphrase, and when you're done, press ``Enter``.
 
 Then you need to give your public key to GitHub. Run:
 
-```
+```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
@@ -255,19 +254,19 @@ It will prompt on the screen the content of the ``id_ed25519.pub file``. Copy th
 To check that this step is completed, in the terminal run this. You will be prompted a warning, type ``yes`` then ``Enter``.
 
 
-```
+```bash
 ssh -T git@github.com
 ```
 
 If you see something like this, you're done!
 
-```
+```bash
 # Hi --------! You've successfully authenticated, but GitHub does not provide shell access
 ```
 
 ⚠️ If it does not work, try running this before trying again the ``ssh -T`` command: ⚠️
 
-```
+```bash
 ssh-add ~/.ssh/id_ed25519
 ```
 
@@ -280,11 +279,11 @@ This is not used at the beginning of the course, but let's get a head start and 
 
 Copy paste the following commands:
 
-```
+```bash
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 ```
 
-```
+```bash
 sudo apt install -y nodejs
 ```
 
@@ -305,7 +304,7 @@ Forking means that it will create a new repo in your GitHub account, identical t
 Open your terminal. **Don't blindly copy paste this line**, replace ``replace_this_with_your_github_username`` with your own github usernickname.
 
 
-```
+```bash
 export GITHUB_USERNAME=replace_this_with_your_github_username
 
 # Example:
@@ -315,29 +314,29 @@ export GITHUB_USERNAME=replace_this_with_your_github_username
 Now copy/paste this very long line in your terminal. Do **not** change this one.
 
 
-```
+```bash
 mkdir -p ~/code/$GITHUB_USERNAME && cd $_ && git clone git@github.com:$GITHUB_USERNAME/dotfiles.git
 ```
 
 Run the ``dotfiles`` installer.
 
 
-```
+```bash
 cd ~/code/$GITHUB_USERNAME/dotfiles
 ```
 
-```
+```bash
 zsh install.sh
 ```
 
 Then run the git installer:
 
 
-```
+```bash
 cd ~/code/$GITHUB_USERNAME/dotfiles
 ```
 
-```
+```bash
 zsh git_setup.sh
 ```
 
@@ -348,21 +347,21 @@ Be careful, you **need** to put the **same** email as the one you sign up with o
 Copy the following command in your terminal to open the ``~/.zshrc`` profile file in Visual Code Studio:
 
 
-```
+```bash
 code ~/.zshrc
 ```
 
 Locate the line ``# Actually load Oh-My-Zsh`` and **above it** write the following line:
 
 
-```
+```bash
 ZSH_DISABLE_COMPFIX=true
 ```
 
 You don't want to be asked for your passphrase every time you communicate with a distant repository. So you need to add the plugin ``ssh-agent`` to ``oh my zsh``. Spot the line starting with ``plugins=`` Then ``add ssh-agent`` to the plugins list. The list should look like:
 
 
-```
+```bash
 plugins=(gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search ssh-agent)
 ```
 
@@ -374,7 +373,7 @@ Save the ``.zshrc`` file with ``Ctrl`` + ``S`` and close Visual Code Studio.
 
 First we need to clean up any previous Ruby installation you might have:
 
-```
+```bash
 rvm implode && sudo rm -rf ~/.rvm
 # If you got "zsh: command not found: rvm", carry on. It means `rvm` is not
 # on your computer, that's what we want!
@@ -385,7 +384,7 @@ rm -rf ~/.rbenv
 Then in the terminal, run:
 
 
-```
+```bash
 sudo apt install -y build-essential tklib zlib1g-dev libssl-dev libffi-dev libxml2 libxml2-dev libxslt1-dev libreadline-dev
 sudo apt clean
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -398,19 +397,19 @@ Now, you are ready to install the latest ruby version, and set it as the default
 
 Run this command, it will **take a while (5-10 minutes)**
 
-```
+```bash
 rbenv install 2.6.6
 ```
 
 Once the ruby installation is done, run this command to tell the system to use the 2.6.6 version by default.
 
-```
+```bash
 rbenv global 2.6.6
 ```
 
 Then **restart** your Terminal again (close it and reopen it).
 
-```
+```bash
 ruby -v
 ```
 
@@ -421,28 +420,28 @@ You should see something starting with ruby ``2.6.6p``.
 
 Please run the following line:
 
-```
+```bash
 gem install rake bundler rspec rubocop rubocop-performance pry pry-byebug hub colored octokit
 ```
 
 ⚠️ If it does not work, try running this before trying again: ⚠️
 
-```
+```bash
 # check the current sources
 gem sources
 ```
 
 If printed
 
-```
-*** CURRENT SOURCES ***
+```bash
+# *** CURRENT SOURCES ***
 http://gems.rubyforge.org/
 http://gems.github.com
 ```
 
 So run this command to remove them and replace with [https://rubygems.org/](https://rubygems.org/)
 
-```
+```bash
 gem sources -r http://gems.rubyforge.org/
 gem sources -r http://gems.github.com
 gem sources -a https://rubygems.org/
@@ -454,13 +453,13 @@ To be sure that you can interact with your browser installed on Windows from you
 
 If you're using Google Chrome.
 
-```
+```bash
 echo "export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe" >> ~/.zshrc
 ```
 
 If you're using Mozilla Firefox.
 
-```
+```bash
 echo "export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe" >> ~/.zshrc
 ```
 
@@ -472,30 +471,30 @@ echo "export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe
 
 In a few weeks, we'll talk about SQL and Databases and you'll need something called Postgresql, an open-source robust and production-ready database. Let's install it now.
 
-```
+```bash
 sudo apt install -y postgresql postgresql-contrib libpq-dev build-essential
 ```
 
-```
+```bash
 sudo /etc/init.d/postgresql start
 ```
 
-```
+```bash
 sudo -u postgres psql --command "CREATE ROLE `whoami` LOGIN createdb;"
 ```
 
 
 You can configure PostgreSQL to autostart, so you don't have to execute ``sudo /etc/init.d/postgresql start`` each time you open a new terminal:
 
-```
+```bash
 sudo echo "`whoami` ALL=NOPASSWD:/etc/init.d/postgresql start" | sudo tee /etc/sudoers.d/postgresql
 ```
 
-```
+```bash
 sudo chmod 440 /etc/sudoers.d/postgresql
 ```
 
-```
+```bash
 echo "sudo /etc/init.d/postgresql start" >> ~/.zshrc
 ```
 
@@ -507,7 +506,7 @@ Let's check if you successfully installed everything.
 Quit all opened Terminal, open a new one and run the following commands:
 
 
-```
+```bash
 curl -Ls https://raw.githubusercontent.com/lewagon/setup/master/check.rb > _.rb && ruby _.rb || rm _.rb
 ```
 
